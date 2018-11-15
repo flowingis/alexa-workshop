@@ -1,0 +1,19 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "workshop",
+      "types": [
+
+      ],
+      "intents": [
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": [
+            "Can you help me",
+            "I don't know what to do"
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "deploy_settings": {
+    "default": {
+      "skill_id": "amzn1.ask.skill.b8d0fbcf-6958-471d-bbe7-9ee452923c85",
+      "was_cloned": false,
+      "merge": {
+        "manifest": {
+          "apis": {
+            "custom": {
+              "endpoint": {
+                "uri": "ask-custom-workshop-example-skill-default"
+              }
+            }
+          }
+        }
+      },
+      "resources": {
+        "manifest": {
+          "eTag": "2382952829b34d985011435a5653f97a"
+        },
+        "interactionModel": {
+          "en-US": {
+            "eTag": "fbadebc0e80994e5484fe5889ff6698c"
+          }
+        },
+        "lambda": [
+          {
+            "arn": "arn:aws:lambda:us-east-1:383537978421:function:ask-custom-workshop-example-skill-default",
+            "functionName": "arn:aws:lambda:us-east-1:383537978421:function:ask-custom-workshop-example-skill-default",
+            "awsRegion": "us-east-1",
+            "alexaUsage": [
+              "custom/default"
+            ],
+            "revisionId": "11063d65-b646-4af2-93dd-24518ea795b2"
+          }
+        ]
+      }
+    }
+  }
+}
