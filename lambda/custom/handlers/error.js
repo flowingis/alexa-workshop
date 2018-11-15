@@ -1,14 +1,20 @@
-const canHandle = () => true
-const handle = (handlerInput, error) => {
-  console.log(`Error handled: ${error.message}`)
+const { getLocale } = require('../utils/requests')
 
-  return handlerInput.responseBuilder
-    .speak('Sorry, I can\'t understand the command. Please say again.')
-    .reprompt('Sorry, I can\'t understand the command. Please say again.')
-    .getResponse()
+module.exports = (translate) => {
+  const canHandle = () => true
+  const handle = async handlerInput => {
+    const locale = getLocale(handlerInput)
+    const speechText = await translate(locale, 'error')
+
+    return handlerInput.responseBuilder
+      .speak(speechText)
+      .withShouldEndSession(false)
+      .getResponse()
+  }
+
+  return {
+    canHandle,
+    handle
+  }
 }
 
-module.exports = {
-  canHandle,
-  handle
-}

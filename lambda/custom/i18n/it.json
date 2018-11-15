@@ -1,0 +1,7 @@
+{
+    "translation": {
+        "launch": "<p>Benvenuti al workshop di Ideato su Alexa.</p><p>Spero che passeremo una bella giornata insieme.</p>",
+        "help": "Per ora non puoi fare nulla, Hakuna Matata!",
+        "error": "Scusami, non sono riuscita a capire il comando. Ripeti per favore"
+    }
+}

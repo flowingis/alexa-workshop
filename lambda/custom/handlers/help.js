@@ -1,17 +1,19 @@
-const { isIntentName } = require('../utils/requests')
+const { isIntentName, getLocale } = require('../utils/requests')
 
-const canHandle = handlerInput => isIntentName(handlerInput, 'AMAZON.HelpIntent')
+module.exports = (translate) => {
+  const canHandle = handlerInput => isIntentName(handlerInput, 'AMAZON.HelpIntent')
 
-const handle = handlerInput => {
-  const speechText = 'For now you can do nothing, Hakuna Matata!'
+  const handle = async handlerInput => {
+    const locale = getLocale(handlerInput)
+    const speechText = await translate(locale, 'help')
 
-  return handlerInput.responseBuilder
-    .speak(speechText)
-    .withShouldEndSession(true)
-    .getResponse()
-}
-
-module.exports = {
-  canHandle,
-  handle
+    return handlerInput.responseBuilder
+      .speak(speechText)
+      .withShouldEndSession(true)
+      .getResponse()
+  }
+  return {
+    canHandle,
+    handle
+  }
 }

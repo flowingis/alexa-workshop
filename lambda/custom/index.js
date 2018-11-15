@@ -1,14 +1,18 @@
 const Alexa = require('ask-sdk-core')
-const LaunchRequestHandler = require('./handlers/launch')
-const ErrorHandler = require('./handlers/error')
-const HelpIntentHandler = require('./handlers/help')
+const translate = require('./lib/translate')
+
+const launchRequestHandlerFactory = require('./handlers/launch')
+const errorHandlerFactory = require('./handlers/error')
+const helpIntentHandlerFactory = require('./handlers/help')
 
 const skillBuilder = Alexa.SkillBuilders.custom()
 
 exports.handler = skillBuilder
   .addRequestHandlers(
-    LaunchRequestHandler,
-    HelpIntentHandler
+    launchRequestHandlerFactory(translate),
+    helpIntentHandlerFactory(translate)
   )
-  .addErrorHandlers(ErrorHandler)
+  .addErrorHandlers(
+    errorHandlerFactory(translate)
+  )
   .lambda()
