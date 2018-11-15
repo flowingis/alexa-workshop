@@ -1,4 +1,6 @@
-const canHandle = handlerInput => handlerInput.requestEnvelope.request.type === 'LaunchRequest'
+const { isType } = require('../utils/requests')
+
+const canHandle = handlerInput => isType(handlerInput, 'LaunchRequest')
 const handle = handlerInput => {
   const speechText = 'Welcome to the Alexa Ideato Workshop, I hope that you will enjoy this day with me'
 

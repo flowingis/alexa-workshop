@@ -1,5 +1,6 @@
-const canHandle = handlerInput => handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
-handlerInput.requestEnvelope.request.intent.name === 'AMAZON.HelpIntent'
+const { isIntentName } = require('../utils/requests')
+
+const canHandle = handlerInput => isIntentName(handlerInput, 'AMAZON.HelpIntent')
 
 const handle = handlerInput => {
   const speechText = 'For now you can do nothing, Hakuna Matata!'

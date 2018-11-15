@@ -4,7 +4,8 @@
   "description": "Code for Alexa workshop",
   "scripts": {
     "postinstall": "cd lambda/custom && npm i",
-    "deploy": "ask deploy"
+    "deploy": "ask deploy",
+    "test": "mocha --recursive \"./lambda/**/*test.js\""
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   "devDependencies": {
     "ask-cli": "1.4.9",
     "jest": "23.6.0",
+    "mocha": "3.2.0",
     "standard": "12.0.1"
   },
   "dependencies": {
