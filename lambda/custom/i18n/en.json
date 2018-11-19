@@ -1,6 +1,7 @@
 {
     "translation": {
         "launch": "<p>Welcome to the Alexa <lang xml:lang=\"it-IT\">Ideato</lang> Workshop</p><p>I hope that you will enjoy this day with me</p><p>What do you want to do?</p>",
+        "reprompt": "What do you want to do?",
         "help": "For now you can do nothing, Hakuna Matata!",
         "participants":{
             "list":"<p>This is the list of the attendees of the workshop</p>{{- names}}"

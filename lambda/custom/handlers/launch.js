@@ -5,9 +5,11 @@ module.exports = (translate) => {
   const handle = async handlerInput => {
     const locale = getLocale(handlerInput)
     const speechText = await translate(locale, 'launch')
+    const repromptText = await translate(locale, 'reprompt')
 
     return handlerInput.responseBuilder
       .speak(speechText)
+      .reprompt(repromptText)
       .withShouldEndSession(false)
       .getResponse()
   }
