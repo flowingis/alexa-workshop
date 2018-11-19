@@ -4,6 +4,7 @@
   "description": "Code for Alexa workshop",
   "scripts": {
     "postinstall": "cd lambda/custom && npm i",
+    "predeploy": "cd lambda/custom && npm i",
     "deploy": "ask deploy",
     "test": "mocha --recursive \"./lambda/**/*test.js\""
   },
