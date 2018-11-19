@@ -12,6 +12,13 @@
             "Puoi aiutarmi",
             "Non so cosa fare"
           ]
+        },
+        {
+          "name": "ParticipantsList",
+          "samples": [
+            "dammi la lista dei partecipanti",
+            "Chi sono gli studenti"
+          ]
         }
       ]
     }
