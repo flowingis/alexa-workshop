@@ -9,6 +9,7 @@ module.exports = (translate) => {
 
     return handlerInput.responseBuilder
       .speak(speechText)
+      .withSimpleCard('Help', 'Hakuna Matata')
       .withShouldEndSession(true)
       .getResponse()
   }
