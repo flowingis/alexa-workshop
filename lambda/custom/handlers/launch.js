@@ -1,21 +1,19 @@
-const { isType, getLocale } = require('../utils/requests')
+const { isType } = require('../utils/requests')
 
-module.exports = (translate) => {
-  const canHandle = handlerInput => isType(handlerInput, 'LaunchRequest')
-  const handle = async handlerInput => {
-    const locale = getLocale(handlerInput)
-    const speechText = await translate(locale, 'launch')
-    const repromptText = await translate(locale, 'reprompt')
+const canHandle = handlerInput => isType(handlerInput, 'LaunchRequest')
+const handle = async handlerInput => {
+  const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
+  const speechText = await requestAttributes.translate('launch')
+  const repromptText = await requestAttributes.translate('reprompt')
 
-    return handlerInput.responseBuilder
-      .speak(speechText)
-      .reprompt(repromptText)
-      .withShouldEndSession(false)
-      .getResponse()
-  }
+  return handlerInput.responseBuilder
+    .speak(speechText)
+    .reprompt(repromptText)
+    .withShouldEndSession(false)
+    .getResponse()
+}
 
-  return {
-    canHandle,
-    handle
-  }
+module.exports = {
+  canHandle,
+  handle
 }

@@ -1,23 +1,25 @@
 const Alexa = require('ask-sdk-core')
-const translate = require('./lib/translate')
 const loglessClient = require('logless-client');
 const { BESPOKEN_SECRET } = require('./secrets.json')
 
-const launchRequestHandlerFactory = require('./handlers/launch')
-const errorHandlerFactory = require('./handlers/error')
-const helpIntentHandlerFactory = require('./handlers/help')
-const participantsListHandlerFactory = require('./handlers/participantsList')
+const launchRequestHandler = require('./handlers/launch')
+const errorHandler = require('./handlers/error')
+const helpIntentHandler = require('./handlers/help')
+const participantsListHandler = require('./handlers/participantsList')
+
+const translationsInterceptor = require('./interceptors/translations')
 
 const skillBuilder = Alexa.SkillBuilders.custom()
 
 const lambda = skillBuilder
+.addRequestInterceptors(translationsInterceptor)
 .addRequestHandlers(
-  launchRequestHandlerFactory(translate),
-  helpIntentHandlerFactory(translate),
-  participantsListHandlerFactory(translate)
+  launchRequestHandler,
+  helpIntentHandler,
+  participantsListHandler
 )
 .addErrorHandlers(
-  errorHandlerFactory(translate)
+  errorHandler
 )
 .lambda()
 
