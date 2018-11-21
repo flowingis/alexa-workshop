@@ -1,1 +1,3 @@
 language: node_js
+before_install:
+- cp $TRAVIS_BUILD_DIR/lambda/custom/secrets.copy.json $TRAVIS_BUILD_DIR/lambda/custom/secrets.json
