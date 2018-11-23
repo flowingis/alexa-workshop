@@ -1,16 +1,22 @@
-const { isType } = require('../utils/requests')
+const { isIntentName } = require('../utils/requests')
+const { splitInPages } = require('../utils/speech')
+
 const blog = require('../api/blog')
 
-const canHandle = handlerInput => isType(handlerInput, 'LaunchRequest') || isType(handlerInput, 'SessionEndedRequest')
+const canHandle = handlerInput => isIntentName(handlerInput, 'AMAZON.YesIntent')
+
 const handle = async handlerInput => {
   let speechText
   const requestAttributes = handlerInput.attributesManager.getRequestAttributes()
   try {
     const post = await blog.getFirstPost()
+    const text = await blog.getPost(post.url)
 
-    speechText = await requestAttributes.translate('launch', {
-      title: `<p>${post.title}</p>`
-    })
+    const pages = splitInPages(text)
+
+    speechText = `<speak>
+      ${pages[0]}
+    </speak>`
   } catch (e) {
     speechText = await requestAttributes.translate('error')
   }
