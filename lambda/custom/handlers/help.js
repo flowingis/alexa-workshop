@@ -8,7 +8,6 @@ const canHandle = handlerInput => isIntentName(handlerInput, 'AMAZON.HelpIntent'
 
     return handlerInput.responseBuilder
       .speak(speechText)
-      .withSimpleCard('Help', 'Hakuna Matata')
       .withShouldEndSession(true)
       .getResponse()
   }

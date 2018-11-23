@@ -12,15 +12,6 @@
             "Can you help me",
             "I don't know what to do"
           ]
-        },
-        {
-          "name": "ParticipantsList",
-          "samples": [
-            "Can you tell me the list of the participants",
-            "who are the attendees",
-            "who are the students",
-            "who are the participants"
-          ]
         }
       ]
     }

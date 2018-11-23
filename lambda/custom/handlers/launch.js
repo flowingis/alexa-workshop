@@ -1,15 +1,24 @@
 const { isType } = require('../utils/requests')
+const blog = require('../api/blog')
 
-const canHandle = handlerInput => isType(handlerInput, 'LaunchRequest')
+const canHandle = handlerInput => isType(handlerInput, 'LaunchRequest') || isType(handlerInput, 'SessionEndedRequest')
 const handle = async handlerInput => {
-  const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
-  const speechText = await requestAttributes.translate('launch')
-  const repromptText = await requestAttributes.translate('reprompt')
+  let speechText
+  try {
+    const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
+    const posts = await blog.getTitles()
+
+    speechText = await requestAttributes.translate('launch', {
+      posts: posts.map(p => `<p>${p}</p>`)
+    })
+  } catch (e) {
+    speechText = await requestAttributes.translate('error')
+  }
+
 
   return handlerInput.responseBuilder
     .speak(speechText)
-    .reprompt(repromptText)
-    .withShouldEndSession(false)
+    .withShouldEndSession(true)
     .getResponse()
 }
 

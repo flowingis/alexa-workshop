@@ -7,7 +7,7 @@ alexaTest.initialize(
     "amzn1.ask.account.VOID")
 
 describe("Workshop Skill", ()  => {
-    describe("Participant List", () => {
+    describe.skip("Participant List", () => {
         alexaTest.test([
             {
                 request: alexaTest.getLaunchRequest(),
