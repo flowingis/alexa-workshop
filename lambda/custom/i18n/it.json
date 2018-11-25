@@ -1,6 +1,6 @@
 {
     "translation": {
-        "launch": "Benvenuto nel blog di Ideato. L'ultimo post è \"{{- title}}\" <p>Vuoi che te lo legga?</p>",
+        "launch": "Benvenuto nel blog di Ideato. L'ultimo post è \"{{- title}}\" <p>Se vuoi posso leggerlo per te. In alternativa puoi ascoltare l'ultimo podcast.</p>",
         "reprompt": "Cosa ti piacerebbe fare?",
         "help": "Puoi richiedere la lista dei post",
         "error": "Scusami, non sono riuscita a capire il comando. Ripeti per favore",

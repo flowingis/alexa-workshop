@@ -18,6 +18,39 @@
         {
           "name": "AMAZON.NoIntent",
           "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PauseIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ResumeIntent",
+          "samples": []
+        },
+        {
+          "name": "ListenPodcast",
+          "slots": [],
+          "samples": [
+            "Let me listen to the last podcast",
+            "I would like to listen to the last podcast"
+          ]
+        },
+        {
+          "name": "ReadLastPost",
+          "slots": [],
+          "samples": [
+            "Read the last post",
+            "Read the post",
+            "I would like to read the last post"
+          ]
         }
       ]
     }

@@ -3,7 +3,9 @@ const { splitInPages, DEFAULT_PAGE_LENGTH } = require('../utils/speech')
 
 const blog = require('../api/blog')
 
-const canHandle = handlerInput => isIntentName(handlerInput, 'AMAZON.YesIntent')
+const canHandle = handlerInput => {
+  return isIntentName(handlerInput, 'AMAZON.YesIntent') || isIntentName(handlerInput, 'ReadLastPost')
+}
 
 const handle = async handlerInput => {
   let speechText
@@ -22,7 +24,7 @@ const handle = async handlerInput => {
       DEFAULT_PAGE_LENGTH - continueSentence.length
     )
 
-    const page = attributes.page || 0
+    const page = isIntentName(handlerInput, 'ReadLastPost') ? 0 : (attributes.page || 0)
     endSession = page === pages.length - 1
 
     speechText = `<speak>

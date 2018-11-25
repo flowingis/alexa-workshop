@@ -1,6 +1,6 @@
 {
     "translation": {
-        "launch": "Welcome to the Ideato blog. The last post is {{- title}}. Do you want to read it?",
+        "launch": "Welcome to the Ideato blog. The last post is {{- title}}. <p>If you want I can read it for you. Alternatively you can listen to the last post.</p>",
         "reprompt": "What do you want to do?",
         "help": "You can ask for the list of posts",
         "error": "Sorry, I can\"t understand the command. Please say again.",

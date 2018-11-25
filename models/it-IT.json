@@ -18,6 +18,40 @@
         {
           "name": "AMAZON.NoIntent",
           "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PauseIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ResumeIntent",
+          "samples": []
+        },
+        {
+          "name": "ListenPodcast",
+          "slots": [],
+          "samples": [
+            "Fammi conoscere l'ultimo podcast",
+            "Fammi Ascoltare l'ultimo podcast",
+            "Vorrei ascoltare l'ultimo podcast"
+          ]
+        },
+        {
+          "name": "ReadLastPost",
+          "slots": [],
+          "samples": [
+            "Leggimi l'ultimo post",
+            "Vorrei che mi leggessi l'ultimo post",
+            "Leggi il post"
+          ]
         }
       ]
     }

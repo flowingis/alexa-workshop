@@ -3,10 +3,11 @@ const loglessClient = require('logless-client')
 const { BESPOKEN_SECRET } = require('./secrets.json')
 
 const launchRequestHandler = require('./handlers/launch')
-const yesRequestHandler = require('./handlers/yes')
+const readLastPostRequestHandler = require('./handlers/readLastPost')
 const noRequestHandler = require('./handlers/no')
 const errorHandler = require('./handlers/error')
 const helpIntentHandler = require('./handlers/help')
+const podcastIntentHandler = require('./handlers/podcast')
 
 const translationsInterceptor = require('./interceptors/translations')
 
@@ -17,8 +18,9 @@ const lambda = skillBuilder
   .addRequestHandlers(
     launchRequestHandler,
     helpIntentHandler,
-    yesRequestHandler,
-    noRequestHandler
+    readLastPostRequestHandler,
+    noRequestHandler,
+    podcastIntentHandler
   )
   .addErrorHandlers(
     errorHandler

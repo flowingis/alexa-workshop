@@ -2,18 +2,18 @@
   "manifest": {
     "publishingInformation": {
       "locales": {
-        "en-US": {
-          "summary": "Ideato Alexa Workshop",
-          "examplePhrases": [
-            "Alexa open Workshop"
-          ],
-          "name": "workshop-example-skill",
-          "description": "Ideato Alexa Workshop"
-        },
         "it-IT": {
           "summary": "Ideato Alexa Workshop",
           "examplePhrases": [
             "Alexa Apri Workshop"
+          ],
+          "name": "workshop-example-skill",
+          "description": "Ideato Alexa Workshop"
+        },
+        "en-US": {
+          "summary": "Ideato Alexa Workshop",
+          "examplePhrases": [
+            "Alexa open Workshop"
           ],
           "name": "workshop-example-skill",
           "description": "Ideato Alexa Workshop"
@@ -27,8 +27,13 @@
     "apis": {
       "custom": {
         "endpoint": {
-          "sourceDir": "lambda/custom"
-        }
+          "sourceDir": "./lambda/custom"
+        },
+        "interfaces": [
+          {
+            "type": "AUDIO_PLAYER"
+          }
+        ]
       }
     },
     "manifestVersion": "1.0"
