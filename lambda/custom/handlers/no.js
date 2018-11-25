@@ -4,7 +4,10 @@ const canHandle = handlerInput => isIntentName(handlerInput, 'AMAZON.NoIntent')
 
 const handle = async handlerInput => {
   const requestAttributes = handlerInput.attributesManager.getRequestAttributes()
-  const speechText = await requestAttributes.translate('exit')
+  const exit = await requestAttributes.translate('exit')
+  const speechText = `<speak>
+    ${exit}
+  </speak>`
 
   return handlerInput.responseBuilder
     .speak(speechText)

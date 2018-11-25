@@ -1,7 +1,10 @@
 const canHandle = () => true
 const handle = async (handlerInput, error) => {
   const requestAttributes = handlerInput.attributesManager.getRequestAttributes()
-  const speechText = await requestAttributes.translate('error')
+  const errorMessage = await requestAttributes.translate('error')
+  const speechText = `<speak>
+    ${errorMessage}
+  </speak>`
 
   return handlerInput.responseBuilder
     .speak(speechText)

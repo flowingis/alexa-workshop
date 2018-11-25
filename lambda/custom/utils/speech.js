@@ -1,8 +1,9 @@
 const SPEAK_TAGS = '<speak></speak>'
 
 const sentenceTransformer = sentence => `<s>${sentence}</s>`
+const DEFAULT_PAGE_LENGTH = 500
 
-const splitInPages = (text, pageSize = 3000, transformer = sentenceTransformer) => {
+const splitInPages = (text, pageSize = DEFAULT_PAGE_LENGTH, transformer = sentenceTransformer) => {
   const realPageSize = pageSize - SPEAK_TAGS.length
   const pages = []
 
@@ -34,5 +35,6 @@ const splitInPages = (text, pageSize = 3000, transformer = sentenceTransformer) 
 }
 
 module.exports = {
-  splitInPages
+  splitInPages,
+  DEFAULT_PAGE_LENGTH
 }

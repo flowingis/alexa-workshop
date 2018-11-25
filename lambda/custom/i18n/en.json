@@ -4,6 +4,7 @@
         "reprompt": "What do you want to do?",
         "help": "You can ask for the list of posts",
         "error": "Sorry, I can\"t understand the command. Please say again.",
-        "exit": "Ok <p>bye bye</p>"
+        "exit": "Ok <p>bye bye</p>",
+        "continue": "Do you want to continue?"
     }
 }

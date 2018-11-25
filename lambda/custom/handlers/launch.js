@@ -3,17 +3,21 @@ const blog = require('../api/blog')
 
 const canHandle = handlerInput => isType(handlerInput, 'LaunchRequest') || isType(handlerInput, 'SessionEndedRequest')
 const handle = async handlerInput => {
-  let speechText
+  let message
   const requestAttributes = handlerInput.attributesManager.getRequestAttributes()
   try {
     const post = await blog.getFirstPost()
 
-    speechText = await requestAttributes.translate('launch', {
+    message = await requestAttributes.translate('launch', {
       title: `<p>${post.title}</p>`
     })
   } catch (e) {
-    speechText = await requestAttributes.translate('error')
+    message = await requestAttributes.translate('error')
   }
+
+  const speechText = `<speak>
+      ${message}
+  </speak>`
 
   return handlerInput.responseBuilder
     .speak(speechText)

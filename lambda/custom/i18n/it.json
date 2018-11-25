@@ -4,6 +4,7 @@
         "reprompt": "Cosa ti piacerebbe fare?",
         "help": "Puoi richiedere la lista dei post",
         "error": "Scusami, non sono riuscita a capire il comando. Ripeti per favore",
-        "exit": "Ok <p>A Presto</p>"
+        "exit": "Ok <p>A Presto</p>",
+        "continue": "Vuoi Continuare?"
     }
 }
