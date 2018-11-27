@@ -1,11 +1,9 @@
 {
     "translation": {
-        "launch": "<p>Benvenuti al workshop di Ideato su Alexa.</p><p>Spero che passeremo una bella giornata insieme.</p><p>Cosa ti piacerebbe fare?</p>",
-        "reprompt": "Cosa ti piacerebbe fare?",
+        "launch": "Benveuto nell'applicazione finanziaria del fondo Ideato.",
+        "alerts": "Ci sono {{- alerts}} alert da controllare. Vuoi farlo ora?",
+        "noAlerts": "Non ci sono alerts",
         "help": "Per ora non puoi fare nulla, Hakuna Matata!",
-        "participants":{
-            "list":"<p>Questa è la lista dei partecipanti al workshop</p>{{- names}}"
-        },
         "error": "Scusami, non sono riuscita a capire il comando. Ripeti per favore"
     }
 }

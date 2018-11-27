@@ -1,11 +1,9 @@
 {
     "translation": {
-        "launch": "<p>Welcome to the Alexa <lang xml:lang=\"it-IT\">Ideato</lang> Workshop</p><p>I hope that you will enjoy this day with me</p><p>What do you want to do?</p>",
-        "reprompt": "What do you want to do?",
+        "launch": "Welcome to the financial application of <lang xml:lang=\"it-IT\">Ideato</lang>",
+        "alerts": "There are {{- alerts}} alerts to check. Do you want to check them now?",
+        "noAlerts": "There are no alerts",
         "help": "For now you can do nothing, Hakuna Matata!",
-        "participants":{
-            "list":"<p>This is the list of the attendees of the workshop</p>{{- names}}"
-        },
         "error": "Sorry, I can\"t understand the command. Please say again."
     }
 }

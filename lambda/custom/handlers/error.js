@@ -1,7 +1,10 @@
 const canHandle = () => true
 const handle = async handlerInput => {
-  const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
-  const speechText = await requestAttributes.translate('error')
+  const requestAttributes = handlerInput.attributesManager.getRequestAttributes()
+  const error = await requestAttributes.translate('error')
+  const speechText = `<speak>
+    ${error}
+  </speak>`
 
   return handlerInput.responseBuilder
     .speak(speechText)
@@ -13,4 +16,3 @@ module.exports = {
   canHandle,
   handle
 }
-
