@@ -8,6 +8,7 @@ const noRequestHandler = require('./handlers/no')
 const errorHandler = require('./handlers/error')
 const helpIntentHandler = require('./handlers/help')
 const podcastIntentHandler = require('./handlers/podcast')
+const stopIntentHandler = require('./handlers/stop')
 
 const translationsInterceptor = require('./interceptors/translations')
 
@@ -20,7 +21,8 @@ const lambda = skillBuilder
     helpIntentHandler,
     readLastPostRequestHandler,
     noRequestHandler,
-    podcastIntentHandler
+    podcastIntentHandler,
+    stopIntentHandler
   )
   .addErrorHandlers(
     errorHandler

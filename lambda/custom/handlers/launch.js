@@ -1,7 +1,7 @@
-const { isType } = require('../utils/requests')
+const { isType, isIntentName } = require('../utils/requests')
 const blog = require('../api/blog')
 
-const canHandle = handlerInput => isType(handlerInput, 'LaunchRequest') || isType(handlerInput, 'SessionEndedRequest')
+const canHandle = handlerInput => isType(handlerInput, 'LaunchRequest') || isIntentName(handlerInput, 'AMAZON.ResumeIntent')
 const handle = async handlerInput => {
   let message
   const requestAttributes = handlerInput.attributesManager.getRequestAttributes()
