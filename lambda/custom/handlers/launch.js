@@ -11,7 +11,8 @@ const getAlertsMessage = async (t, alerts) => {
 
 const canHandle = handlerInput => isType(handlerInput, 'LaunchRequest')
 const handle = async handlerInput => {
-  const financialConversation = financialConversationFactory()
+  const attributes = handlerInput.attributesManager.getSessionAttributes()
+  const financialConversation = financialConversationFactory(attributes.state)
   const { alerts } = financialConversation.get()
   const requestAttributes = handlerInput.attributesManager.getRequestAttributes()
   const alertMessage = await getAlertsMessage(requestAttributes.translate, alerts)
@@ -21,6 +22,9 @@ const handle = async handlerInput => {
     <p>${launch}</p>
     <p>${alertMessage}</p>
   </speak>`
+
+  attributes.state = financialConversation.get()
+  handlerInput.attributesManager.setSessionAttributes(attributes)
 
   return handlerInput.responseBuilder
     .speak(speechText)

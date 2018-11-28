@@ -1,10 +1,17 @@
+const { getLocale } = require('../utils/requests')
+const translate = require('../lib/translate')
+
 const canHandle = () => true
-const handle = async handlerInput => {
-  const requestAttributes = handlerInput.attributesManager.getRequestAttributes()
-  const error = await requestAttributes.translate('error')
+const handle = async (handlerInput, error) => {
+  const locale = getLocale(handlerInput)
+  const errorMessage = await translate(locale, 'error')
   const speechText = `<speak>
-    ${error}
+    ${errorMessage}
   </speak>`
+
+  handlerInput.attributesManager.setSessionAttributes({
+    error: error.message
+  })
 
   return handlerInput.responseBuilder
     .speak(speechText)
