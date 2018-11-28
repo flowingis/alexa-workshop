@@ -5,6 +5,7 @@ const { BESPOKEN_SECRET } = require('./secrets.json')
 const launchRequestHandler = require('./handlers/launch')
 const errorHandler = require('./handlers/error')
 const helpIntentHandler = require('./handlers/help')
+const readAlertsIntentHandler = require('./handlers/readAlerts')
 
 const translationsInterceptor = require('./interceptors/translations')
 
@@ -14,7 +15,8 @@ const lambda = skillBuilder
   .addRequestInterceptors(translationsInterceptor)
   .addRequestHandlers(
     launchRequestHandler,
-    helpIntentHandler
+    helpIntentHandler,
+    readAlertsIntentHandler
   )
   .addErrorHandlers(
     errorHandler

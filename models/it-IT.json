@@ -12,6 +12,11 @@
             "Puoi aiutarmi",
             "Non so cosa fare"
           ]
+        },
+        {
+          "name": "AMAZON.YesIntent",
+          "samples": [
+          ]
         }
       ]
     }
