@@ -19,7 +19,6 @@ module.exports = (initialState = INITIAL_STATE) => {
 
   const readAlert = () => {
     stateMachine.readAlert()
-    state.alerts--
     return {
       message: 'Messaggio Alert',
       suggestedAction: 'Vendere le azioni?'
@@ -28,12 +27,12 @@ module.exports = (initialState = INITIAL_STATE) => {
 
   const confirm = () => {
     stateMachine.confirm()
-    const { alerts } = state
-    if (alerts === 0) {
+    state.alerts--
+    if (state.alerts === 0) {
       stateMachine.noAlerts()
     }
 
-    return alerts
+    return state.alerts
   }
 
   const cancel = () => {

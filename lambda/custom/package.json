@@ -6,5 +6,12 @@
     "javascript-state-machine": "3.1.0",
     "lodash.get": "4.4.2",
     "logless-client": "0.0.5"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it",
+      "beforeEach"
+    ]
   }
 }
