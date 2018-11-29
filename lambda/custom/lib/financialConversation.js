@@ -1,12 +1,22 @@
 const stateMachineFactory = require('./stateMachine')
+const clone = require('lodash.clonedeep')
 
 const INITIAL_STATE = {
-  alerts: 2,
+  alerts: [
+    {
+      message: 'Primo Messaggio Alert',
+      suggestedAction: 'Vendere le azioni?'
+    },
+    {
+      message: 'Secondo Messaggio Alert',
+      suggestedAction: 'Comprare le azioni?'
+    }
+  ],
   status: 'launched'
 }
 
 module.exports = (initialState = INITIAL_STATE) => {
-  let state = { ...initialState }
+  let state = clone(initialState)
   let onStatusChange = to => {
     state.status = to
   }
@@ -19,39 +29,31 @@ module.exports = (initialState = INITIAL_STATE) => {
 
   const readAlert = () => {
     stateMachine.readAlert()
-    return {
-      message: 'Messaggio Alert',
-      suggestedAction: 'Vendere le azioni?'
-    }
+    return state.alerts[state.alerts.length - 1]
   }
 
   const confirm = () => {
     stateMachine.confirm()
-    state.alerts--
-    if (state.alerts === 0) {
+    state.alerts.pop()
+    if (state.alerts.length === 0) {
       stateMachine.noAlerts()
     }
 
-    return state.alerts
+    return state.alerts.length
   }
 
   const cancel = () => {
     stateMachine.cancel()
   }
 
-  const nextAlert = () => {
-    stateMachine.nextAlert()
-    state.alerts--
-    return {
-      message: 'Messaggio Alert',
-      suggestedAction: 'Vendere le azioni?'
-    }
-  }
-
-  const get = () => Object.freeze({ ...state })
+  const get = () => Object.freeze(clone(state))
 
   const canDo = state => {
     return stateMachine.can(state)
+  }
+
+  const isFinished = () => {
+    return state.status === 'exit'
   }
 
   return {
@@ -60,6 +62,6 @@ module.exports = (initialState = INITIAL_STATE) => {
     confirm,
     cancel,
     canDo,
-    nextAlert
+    isFinished
   }
 }

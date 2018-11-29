@@ -3,7 +3,7 @@ const StateMachine = require('javascript-state-machine')
 const transitions = [
   {
     name: 'readAlert',
-    from: 'launched',
+    from: ['launched', 'alertConfirmed'],
     to: 'alertRead'
   },
   {
@@ -20,11 +20,6 @@ const transitions = [
     name: 'confirm',
     from: 'alertRead',
     to: 'alertConfirmed'
-  },
-  {
-    name: 'nextAlert',
-    from: 'alertConfirmed',
-    to: 'alertRead'
   }
 ]
 

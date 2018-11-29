@@ -15,7 +15,7 @@ const handle = async handlerInput => {
   const financialConversation = financialConversationFactory(attributes.state)
   const { alerts } = financialConversation.get()
   const requestAttributes = handlerInput.attributesManager.getRequestAttributes()
-  const alertMessage = await getAlertsMessage(requestAttributes.translate, alerts)
+  const alertMessage = await getAlertsMessage(requestAttributes.translate, alerts.length)
   const launch = await requestAttributes.translate('launch')
 
   const speechText = `<speak>
@@ -28,7 +28,7 @@ const handle = async handlerInput => {
 
   return handlerInput.responseBuilder
     .speak(speechText)
-    .withShouldEndSession(alerts === 0)
+    .withShouldEndSession(financialConversation.isFinished())
     .getResponse()
 }
 

@@ -1,9 +1,11 @@
 {
     "translation": {
-        "launch": "Benveuto nell'applicazione finanziaria del fondo Ideato.",
+        "launch": "Benvenuto nell'applicazione finanziaria del fondo Ideato.",
         "alerts": "Ci sono {{- alerts}} alert da controllare. Vuoi farlo ora?",
         "noAlerts": "Non ci sono alerts",
         "help": "Per ora non puoi fare nulla, Hakuna Matata!",
+        "operationConfirmedWithAlerts": "Operazione confermata. Hai ancora {{- alerts}} alert da gestire. Vuoi controllare il prossimo?",
+        "operationConfirmedWithNoAlerts": "Operazione confermata. Non ci sono altri alert.",
         "error": "Scusami, non sono riuscita a capire il comando. Ripeti per favore"
     }
 }

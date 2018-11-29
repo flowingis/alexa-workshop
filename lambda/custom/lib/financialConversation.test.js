@@ -16,7 +16,7 @@ describe('financialConversation', () => {
   it('readAlert should not decrease the number of remaining alerts', () => {
     const { alerts } = financialConversation.get()
     financialConversation.readAlert()
-    assert.strictEqual(alerts, financialConversation.get().alerts)
+    assert.strictEqual(alerts.length, financialConversation.get().alerts.length)
   })
 
   it('readAlert should change the status to "alertRead"', () => {
@@ -36,10 +36,27 @@ describe('financialConversation', () => {
     })
   })
 
-  it('confirm should not decrease the number of remaining alerts', () => {
+  it('confirm should decrease the number of remaining alerts', () => {
     const { alerts } = financialConversation.get()
     financialConversation.readAlert()
     financialConversation.confirm()
-    assert.strictEqual(alerts, financialConversation.get().alerts + 1)
+    assert.strictEqual(alerts.length, financialConversation.get().alerts.length + 1)
+  })
+
+  it('readAlert should throw when no alert are remaining', () => {
+    const financialConversation = financialConversationFactory({
+      alerts: [
+        {
+          message: 'Dummy'
+        }
+      ]
+    })
+
+    financialConversation.readAlert()
+    financialConversation.confirm()
+
+    assert.throws(() => {
+      financialConversation.readAlert()
+    })
   })
 })

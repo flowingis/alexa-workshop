@@ -6,6 +6,7 @@ const launchRequestHandler = require('./handlers/launch')
 const errorHandler = require('./handlers/error')
 const helpIntentHandler = require('./handlers/help')
 const readAlertsIntentHandler = require('./handlers/readAlerts')
+const confirmIntentHandler = require('./handlers/confirm')
 
 const translationsInterceptor = require('./interceptors/translations')
 
@@ -16,7 +17,8 @@ const lambda = skillBuilder
   .addRequestHandlers(
     launchRequestHandler,
     helpIntentHandler,
-    readAlertsIntentHandler
+    readAlertsIntentHandler,
+    confirmIntentHandler
   )
   .addErrorHandlers(
     errorHandler

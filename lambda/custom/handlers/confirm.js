@@ -9,7 +9,7 @@ const canHandle = handlerInput => {
   const attributes = handlerInput.attributesManager.getSessionAttributes()
   const financialConversation = financialConversationFactory(attributes.state)
 
-  return financialConversation.canDo('readAlert')
+  return financialConversation.canDo('confirm')
 }
 
 const handle = async handlerInput => {
@@ -18,12 +18,15 @@ const handle = async handlerInput => {
   try {
     const attributes = handlerInput.attributesManager.getSessionAttributes()
     const financialConversation = financialConversationFactory(attributes.state)
-    const { message, suggestedAction } = financialConversation.readAlert()
+    const alerts = financialConversation.confirm()
     finished = financialConversation.isFinished()
+
+    const messageKey = alerts === 0 ? 'operationConfirmedWithNoAlerts' : 'operationConfirmedWithAlerts'
+    const requestAttributes = handlerInput.attributesManager.getRequestAttributes()
+    const message = await requestAttributes.translate(messageKey, { alerts })
 
     speechText = `<speak>
       <p>${message}</p>
-      <p>${suggestedAction}</p>
     </speak>`
 
     attributes.state = financialConversation.get()
