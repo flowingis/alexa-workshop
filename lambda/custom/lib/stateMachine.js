@@ -8,7 +8,7 @@ const transitions = [
   },
   {
     name: 'cancel',
-    from: ['alertRead', 'alertConfirmed'],
+    from: ['launched', 'alertRead', 'alertConfirmed'],
     to: 'exit'
   },
   {

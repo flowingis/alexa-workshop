@@ -6,6 +6,7 @@
         "help": "For now you can do nothing, Hakuna Matata!",
         "operationConfirmedWithAlerts": "Operation Conffirmed. You have {{- alerts}} alerts left. Do you want to check the next one?",
         "operationConfirmedWithNoAlerts": "Operation Conffirmed. You Don't have any more alerts",
-        "error": "Sorry, I can\"t understand the command. Please say again."
+        "error": "Sorry, I can\"t understand the command. Please say again.",
+        "exit": "Ok, bye bye."
     }
 }

@@ -59,4 +59,14 @@ describe('financialConversation', () => {
       financialConversation.readAlert()
     })
   })
+
+  it('cancel should finish the conversation', () => {
+    financialConversation.cancel()
+
+    assert.throws(() => {
+      financialConversation.readAlert()
+    })
+
+    assert.ok(financialConversation.isFinished())
+  })
 })

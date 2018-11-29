@@ -6,6 +6,7 @@
         "help": "Per ora non puoi fare nulla, Hakuna Matata!",
         "operationConfirmedWithAlerts": "Operazione confermata. Hai ancora {{- alerts}} alert da gestire. Vuoi controllare il prossimo?",
         "operationConfirmedWithNoAlerts": "Operazione confermata. Non ci sono altri alert.",
-        "error": "Scusami, non sono riuscita a capire il comando. Ripeti per favore"
+        "error": "Scusami, non sono riuscita a capire il comando. Ripeti per favore",
+        "exit": "Ok, A presto."
     }
 }
