@@ -1,13 +1,18 @@
 {
     "translation": {
-        "launchWithAlerts": "Welcome to the financial application of <lang xml:lang=\"it-IT\">Ideato</lang>. There are {{- alerts}} alerts to check. Do you want to check them now? You can also ask for your balance.",
-        "launchWithNoAlerts": "Welcome to the financial application of <lang xml:lang=\"it-IT\">Ideato</lang>. There are no alerts, if you want you can ask for your account balance",
+        "launchWithAlerts": "Welcome to the financial application of <lang xml:lang=\"it-IT\">Ideato</lang>. There are {{- alerts}} alerts to check. Do you want to check them now? You can also ask for your balance or do a money transfer.",
+        "launchWithNoAlerts": "Welcome to the financial application of <lang xml:lang=\"it-IT\">Ideato</lang>. There are no alerts, if you want you can ask for your account balance or do a money transfer",
         "help": "For now you can do nothing, Hakuna Matata!",
         "operationConfirmedWithAlerts": "Operation Conffirmed. You have {{- alerts}} alerts left. Do you want to check the next one?",
         "operationConfirmedWithNoAlerts": "Operation Conffirmed. You Don't have any more alerts",
         "error": "Sorry, I can\"t understand the command. Please say again.",
         "exit": "Ok, bye bye.",
         "readBalanceWithAlerts": "Your balance is of {{-totalMoney}} euros. There are {{- alerts}} alerts to check. Do you want to check them now?",
-        "readBalanceWithNoAlerts": "Il tuo saldo è di {{-totalMoney}} euro. Bye Bye."
+        "readBalanceWithNoAlerts": "Il tuo saldo è di {{-totalMoney}} euro. Bye Bye.",
+        "noContact": "Sorry, no contcat found wiht the name {{-name}}.",
+        "moneyTransferDone": "Ok, I just transfered {{-value}} euros to {{-name}}. Your Total Money is {{-totalMoney}} euros",
+        "askForRecipientInMoneyTransfer": "Who is the recipient of the money transfer?",
+        "askForValuetInMoneyTransfer": "How much money do you want to transfer?",
+        "notEnoughFunds": "You don't have enough funds for money transfer. Your Total Money is {{-totalMoney}} euros"
     }
 }

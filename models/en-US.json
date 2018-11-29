@@ -1,37 +1,115 @@
 {
   "interactionModel": {
-      "languageModel": {
-          "invocationName": "workshop",
-          "intents": [
-              {
-                  "name": "AMAZON.HelpIntent",
-                  "samples": [
-                      "Can you help me",
-                      "I don't know what to do"
-                  ]
-              },
-              {
-                  "name": "AMAZON.YesIntent",
-                  "samples": []
-              },
-              {
-                  "name": "AMAZON.NoIntent",
-                  "samples": []
-              },
-              {
-                  "name": "AMAZON.CancelIntent",
-                  "samples": []
-              },
-              {
-                  "name": "ReadBalance",
-                  "slots": [],
-                  "samples": [
-                      "Please let me know my balance",
-                      "I want to know my balance"
-                  ]
-              }
+    "languageModel": {
+      "invocationName": "workshop",
+      "intents": [
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": [
+            "Can you help me",
+            "I don't know what to do"
+          ]
+        },
+        {
+          "name": "AMAZON.YesIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NoIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "ReadBalance",
+          "slots": [],
+          "samples": [
+            "Please let me know my balance",
+            "I want to know my balance"
+          ]
+        },
+        {
+          "name": "MoneyTransfer",
+          "slots": [
+            {
+              "name": "Name",
+              "type": "AMAZON.US_FIRST_NAME",
+              "samples": [
+                "send to {Name}",
+                "{Name}",
+                "to {Name}"
+              ]
+            },
+            {
+              "name": "Value",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "one hundred"
+              ]
+            }
           ],
-          "types": []
+          "samples": [
+            "do a money transfer",
+            "do a money transfer to {Name}",
+            "do a money transfer of {Value} euros to {Name}",
+            "Send Money",
+            "send money to {Name}",
+            "I would like to send money to {Name}"
+          ]
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "MoneyTransfer",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "Name",
+              "type": "AMAZON.US_FIRST_NAME",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.386155256837.790971096380"
+              }
+            },
+            {
+              "name": "Value",
+              "type": "AMAZON.NUMBER",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.792045006284.1165617748466"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.386155256837.790971096380",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Who should I send the money?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.792045006284.1165617748466",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "How much money do you want to send?"
+          }
+        ]
       }
+    ]
   }
 }

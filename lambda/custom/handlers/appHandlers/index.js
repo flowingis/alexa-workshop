@@ -4,6 +4,7 @@ const readAlertsIntentHandler = require('./readAlerts')
 const confirmIntentHandler = require('./confirm')
 const cancelIntentHandler = require('./cancel')
 const readBalance = require('./readBalance')
+const moneyTransferHandler = require('./moneyTransfer')
 
 module.exports = [
   launchRequestHandler,
@@ -11,5 +12,6 @@ module.exports = [
   readAlertsIntentHandler,
   cancelIntentHandler,
   confirmIntentHandler,
-  readBalance
+  readBalance,
+  moneyTransferHandler
 ]

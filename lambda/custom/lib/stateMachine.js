@@ -30,6 +30,11 @@ const transitions = [
     name: 'close',
     from: 'launched',
     to: 'exit'
+  },
+  {
+    name: 'moneyTransfer',
+    from: 'launched',
+    to: 'launched'
   }
 ]
 

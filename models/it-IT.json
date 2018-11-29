@@ -1,38 +1,123 @@
 {
   "interactionModel": {
-      "languageModel": {
-          "invocationName": "workshop",
-          "intents": [
-              {
-                  "name": "AMAZON.HelpIntent",
-                  "samples": [
-                      "Puoi aiutarmi",
-                      "Non so cosa fare"
-                  ]
-              },
-              {
-                  "name": "AMAZON.YesIntent",
-                  "samples": []
-              },
-              {
-                  "name": "AMAZON.NoIntent",
-                  "samples": []
-              },
-              {
-                  "name": "AMAZON.CancelIntent",
-                  "samples": []
-              },
-              {
-                  "name": "ReadBalance",
-                  "slots": [],
-                  "samples": [
-                      "vorrei conoscere il saldo del mio conto",
-                      "dammi il saldo del conto",
-                      "Voglio conoscere il mio saldo"
-                  ]
-              }
+    "languageModel": {
+      "invocationName": "workshop",
+      "intents": [
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": [
+            "Puoi aiutarmi",
+            "Non so cosa fare"
+          ]
+        },
+        {
+          "name": "AMAZON.YesIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NoIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "ReadBalance",
+          "slots": [],
+          "samples": [
+            "vorrei conoscere il saldo del mio conto",
+            "dammi il saldo del conto",
+            "Voglio conoscere il mio saldo"
+          ]
+        },
+        {
+          "name": "MoneyTransfer",
+          "slots": [
+            {
+              "name": "Name",
+              "type": "AMAZON.FirstName",
+              "samples": [
+                "{Name}",
+                "a {Name}"
+              ]
+            },
+            {
+              "name": "Value",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "duemila",
+                "millecinquecento",
+                "cento"
+              ]
+            }
           ],
-          "types": []
+          "samples": [
+            "Fai un bonifico di {Value}",
+            "Fai Bonifico a {Name}",
+            "Fai Bonifico",
+            "Fai Bonifico a {Name} di {Value} euro",
+            "Fai Bonifico di {Value} euro a {Name}",
+            "Voglio mandare {Value} euro a {Name}",
+            "Voglio fare un bonifico per {Name} di {Value} euro",
+            "Voglio fare un bonifico di {Value} euro a {Name}"
+          ]
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "MoneyTransfer",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "Name",
+              "type": "AMAZON.FirstName",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1242687897784.1247136008558"
+              }
+            },
+            {
+              "name": "Value",
+              "type": "AMAZON.NUMBER",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1376247037288.413532881468"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.1242687897784.1247136008558",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "A chi devo mandare i soldi?"
+          },
+          {
+            "type": "PlainText",
+            "value": "A chi vuoi mandare il bonifico?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1376247037288.413532881468",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Quanto Denaro vuoi inviare?"
+          }
+        ]
       }
+    ]
   }
 }

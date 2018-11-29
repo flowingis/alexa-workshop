@@ -1,6 +1,11 @@
 const stateMachineFactory = require('./stateMachine')
 const clone = require('lodash.clonedeep')
 
+const VALID_NAMES = [
+  'maria',
+  'antonio'
+]
+
 const INITIAL_STATE = {
   alerts: [
     {
@@ -26,6 +31,37 @@ module.exports = (initialState = INITIAL_STATE) => {
 
   if (!stateMachine) {
     throw new Error('NO STATE MACHINE!')
+  }
+
+  const validate = async ({ to, value }) => {
+    const errors = []
+
+    if (!value) {
+      errors.push('NO_VALUE')
+    }
+
+    if (value && value > state.totalMoney) {
+      errors.push('NOT_ENOUGH_FUNDS')
+    }
+
+    if (!to) {
+      errors.push('NO_CONTACT')
+    }
+
+    if (to && !VALID_NAMES.includes(to.toLowerCase())) {
+      errors.push('CONTACT_NOT_FOUND')
+    }
+
+    return Promise.resolve(errors)
+  }
+
+  const moneyTransfer = async ({ to, value }) => {
+    const error = await validate({ to, value })
+    if (error.length) {
+      throw new Error('Not Valid data')
+    }
+    state.totalMoney -= value
+    stateMachine.moneyTransfer()
   }
 
   const readAlert = () => {
@@ -63,6 +99,8 @@ module.exports = (initialState = INITIAL_STATE) => {
     confirm,
     cancel,
     canDo,
-    isFinished
+    isFinished,
+    moneyTransfer,
+    validate
   }
 }

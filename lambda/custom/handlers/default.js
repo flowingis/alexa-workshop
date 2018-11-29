@@ -8,7 +8,8 @@ const get = require('lodash.get')
 const extractDataFromHandlerInput = handlerInput => {
   return {
     type: get(handlerInput, 'requestEnvelope.request.type'),
-    intent: get(handlerInput, 'requestEnvelope.request.intent.name')
+    intent: get(handlerInput, 'requestEnvelope.request.intent.name'),
+    slots: get(handlerInput, 'requestEnvelope.request.intent.slots')
   }
 }
 
@@ -20,7 +21,7 @@ const handle = async handlerInput => {
       return translate(locale, key, options)
     }
 
-    const { type, intent } = extractDataFromHandlerInput(handlerInput)
+    const { type, intent, slots } = extractDataFromHandlerInput(handlerInput)
 
     const attributes = handlerInput.attributesManager.getSessionAttributes()
     const financialConversation = financialConversationFactory(attributes.state)
@@ -40,6 +41,7 @@ const handle = async handlerInput => {
       financialConversation,
       handlerInput.responseBuilder,
       session,
+      slots,
       handlerInput)
 
     session.state = financialConversation.get()

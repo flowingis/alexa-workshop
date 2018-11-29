@@ -1,14 +1,18 @@
 {
     "translation": {
-        "launchWithAlerts": "Benvenuto nell'applicazione finanziaria del fondo Ideato. Ci sono {{- alerts}} alert da controllare. Vuoi farlo ora? In alternativa puoi richiedermi il saldo del conto",
-        "launchWithNoAlerts": "Benvenuto nell'applicazione finanziaria del fondo Ideato. Non hai alert attivi al momento, se vuoi puoi richiedere il saldo del tuo conto",
+        "launchWithAlerts": "Benvenuto nell'applicazione finanziaria del fondo Ideato. Ci sono {{- alerts}} alert da controllare. Vuoi farlo ora? In alternativa puoi richiedermi il saldo del conto o fare un bonifico",
+        "launchWithNoAlerts": "Benvenuto nell'applicazione finanziaria del fondo Ideato. Non hai alert attivi al momento, se vuoi puoi richiedere il saldo del tuo conto o fare un bonifico",
         "help": "Per ora non puoi fare nulla, Hakuna Matata!",
         "operationConfirmedWithAlerts": "Operazione confermata. Hai ancora {{- alerts}} alert da gestire. Vuoi controllare il prossimo?",
         "operationConfirmedWithNoAlerts": "Operazione confermata. Non ci sono altri alert.",
         "error": "Scusami, non sono riuscita a capire il comando. Ripeti per favore",
         "exit": "Ok, A presto.",
         "readBalanceWithAlerts": "Il tuo saldo è di {{-totalMoney}} euro. Ci sono {{- alerts}} alert da controllare. Vuoi farlo ora?",
-        "readBalanceWithNoAlerts": "Il tuo saldo è di {{-totalMoney}} euro. Ciao Ciao"
-        
+        "readBalanceWithNoAlerts": "Il tuo saldo è di {{-totalMoney}} euro. Ciao Ciao",
+        "noContact": "Scusa, non ho trovato nessun contatto con il nome {{-name}}.",
+        "moneyTransferDone": "Ok, ho appena trasferito del denato a {{-name}}. Il tuo saldo residuo è di {{-totalMoney}} Euro",
+        "askForRecipientInMoneyTransfer": "A chi faccio il bonifico?",
+        "askForValuetInMoneyTransfer": "Quanto denaro vuoi trasferire?",
+        "notEnoughFunds": "Non hai abbastanza soldi per il bonifico. Il tuo saldo residuo è di {{-totalMoney}} Euro"
     }
 }
