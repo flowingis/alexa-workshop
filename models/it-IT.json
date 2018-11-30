@@ -1,34 +1,38 @@
 {
   "interactionModel": {
-    "languageModel": {
-      "invocationName": "workshop",
-      "types": [
-
-      ],
-      "intents": [
-        {
-          "name": "AMAZON.HelpIntent",
-          "samples": [
-            "Puoi aiutarmi",
-            "Non so cosa fare"
-          ]
-        },
-        {
-          "name": "AMAZON.YesIntent",
-          "samples": [
-          ]
-        },
-        {
-          "name": "AMAZON.NoIntent",
-          "samples": [
-          ]
-        },
-        {
-          "name": "AMAZON.CancelIntent",
-          "samples": [
-          ]
-        }
-      ]
-    }
+      "languageModel": {
+          "invocationName": "workshop",
+          "intents": [
+              {
+                  "name": "AMAZON.HelpIntent",
+                  "samples": [
+                      "Puoi aiutarmi",
+                      "Non so cosa fare"
+                  ]
+              },
+              {
+                  "name": "AMAZON.YesIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.NoIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.CancelIntent",
+                  "samples": []
+              },
+              {
+                  "name": "ReadBalance",
+                  "slots": [],
+                  "samples": [
+                      "vorrei conoscere il saldo del mio conto",
+                      "dammi il saldo del conto",
+                      "Voglio conoscere il mio saldo"
+                  ]
+              }
+          ],
+          "types": []
+      }
   }
 }

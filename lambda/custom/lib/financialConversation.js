@@ -12,7 +12,8 @@ const INITIAL_STATE = {
       suggestedAction: 'Comprare le azioni?'
     }
   ],
-  status: 'launched'
+  status: 'launched',
+  totalMoney: 10000
 }
 
 module.exports = (initialState = INITIAL_STATE) => {

@@ -1,9 +1,9 @@
-const getAlertsMessage = async (t, alerts) => {
-  if (alerts === 0) {
-    return t('noAlerts')
+const getMessage = async (translate, alerts) => {
+  if (alerts && alerts.length) {
+    return translate('launchWithAlerts', { alerts: alerts.length })
   }
 
-  return t('alerts', { alerts })
+  return translate('launchWithNoAlerts')
 }
 
 const canHandle = (type, intent, financialConversation, handlerInput) => {
@@ -12,12 +12,10 @@ const canHandle = (type, intent, financialConversation, handlerInput) => {
 
 const handle = async (translate, financialConversation, responseBuilder) => {
   const { alerts } = financialConversation.get()
-  const alertMessage = await getAlertsMessage(translate, alerts.length)
-  const launch = await translate('launch')
+  const message = await getMessage(translate, alerts)
 
   const speechText = `<speak>
-    <p>${launch}</p>
-    <p>${alertMessage}</p>
+    <p>${message}</p>
   </speak>`
 
   return responseBuilder

@@ -20,6 +20,16 @@ const transitions = [
     name: 'confirm',
     from: 'alertRead',
     to: 'alertConfirmed'
+  },
+  {
+    name: 'readBalance',
+    from: 'launched',
+    to: 'launched'
+  },
+  {
+    name: 'close',
+    from: 'launched',
+    to: 'exit'
   }
 ]
 

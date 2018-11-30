@@ -1,12 +1,14 @@
 {
     "translation": {
-        "launch": "Benvenuto nell'applicazione finanziaria del fondo Ideato.",
-        "alerts": "Ci sono {{- alerts}} alert da controllare. Vuoi farlo ora?",
-        "noAlerts": "Non ci sono alerts",
+        "launchWithAlerts": "Benvenuto nell'applicazione finanziaria del fondo Ideato. Ci sono {{- alerts}} alert da controllare. Vuoi farlo ora? In alternativa puoi richiedermi il saldo del conto",
+        "launchWithNoAlerts": "Benvenuto nell'applicazione finanziaria del fondo Ideato. Non hai alert attivi al momento, se vuoi puoi richiedere il saldo del tuo conto",
         "help": "Per ora non puoi fare nulla, Hakuna Matata!",
         "operationConfirmedWithAlerts": "Operazione confermata. Hai ancora {{- alerts}} alert da gestire. Vuoi controllare il prossimo?",
         "operationConfirmedWithNoAlerts": "Operazione confermata. Non ci sono altri alert.",
         "error": "Scusami, non sono riuscita a capire il comando. Ripeti per favore",
-        "exit": "Ok, A presto."
+        "exit": "Ok, A presto.",
+        "readBalanceWithAlerts": "Il tuo saldo è di {{-totalMoney}} euro. Ci sono {{- alerts}} alert da controllare. Vuoi farlo ora?",
+        "readBalanceWithNoAlerts": "Il tuo saldo è di {{-totalMoney}} euro. Ciao Ciao"
+        
     }
 }
